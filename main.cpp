@@ -86,6 +86,34 @@ void printAllWords(std::vector<std::string> &wordList)
     }
 }
 
+
+
+void insertWordMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], std::string word, int maxSize)
+{
+    int randLine = rand() % maxSize; //Elige la linea en la que ira la palabra
+    int verticalHorizontal = rand() % 2; //Elige si va en vertical o horizontal (a futuro tambien diagonal)
+    int init = 0; 
+    if(maxSize - word.size() > 0){init = rand()% (maxSize - word.size());} //Elige en que posicion inicia la palabra dentro de los limites y de su tamano. Default 0
+    std::cout<<"Line: " << randLine << " Vertical: " << verticalHorizontal << " Init: " << init << "\n";
+    if(verticalHorizontal == 0) //Vertical line
+    {
+        for(int j = 0; j < word.size(); j++)
+        {
+            mat[init][randLine] = word[j];
+            init++;
+        }
+        }
+    else //Horizontal line
+    {
+        for(int j = 0; j < word.size(); j++)
+        {
+            mat[randLine][init] = word[j];
+            init++;
+        }
+    }
+
+}
+
 int main(int argc, char *argv[])
 {
     if(argc != 2)
@@ -101,12 +129,20 @@ int main(int argc, char *argv[])
         getWordList(argv[1], wordList, maxSizeWord);
         if(wordList.size() > 1 && maxSizeWord >= 2 && maxSizeWord <= MAX_SIZE_MAT)
         {
-            // std::sort(wordList.begin(), wordList.end()); //No se si ordenarlas ayude realmente
             char matrix[MAX_SIZE_MAT][MAX_SIZE_MAT];
             fillMatrixRandom(matrix, maxSizeWord);
             printMatrix(matrix, maxSizeWord);
+            // std::sort(wordList.begin(), wordList.end()); //No se si ordenarlas ayude realmente
             printAllWords(wordList);
 
+            //mat[i][j] i va para abajo, j para el lado
+            
+            srand(time(NULL));
+            for(int i = 0; i < wordList.size(); i++)
+            {
+                insertWordMatrix(matrix, wordList[i], maxSizeWord);
+            }
+            printMatrix(matrix, maxSizeWord);
         }
         else
         {
