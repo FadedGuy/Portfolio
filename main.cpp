@@ -118,27 +118,41 @@ void insertWordMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], std::vector<std::str
     {
         for(int j = iPos-1; j >= 0; j--)
         {
+            
             int cruces = 0, k = 0; 
-            while (k < wordListMap[j].size() && k < wordListMap[iPos].size())
+            while (k < wordListMap[j].size() && k < wordListMap[iPos].size() && cruces == 0)
             {   
                 if(wordListMap[j][k] > 0 && wordListMap[iPos][k] > 0) //No esta vacia esa casilla de la letra
                 {
+
                     //std::cout<<"Cruce en " << static_cast<char>(k+'A')<<" ";
-                    wordListMap[j][k] > wordListMap[iPos][k] ? cruces+=wordListMap[j][k] : cruces+=wordListMap[iPos][k];
+                    //Checar cruce aqui mismo no hay necesidad de hacerlo despues
+                    wordListMap[j][k] == wordListMap[iPos][k] ? cruces=wordListMap[j][k] : cruces=wordListMap[iPos][k] + wordListMap[j][k];
+                    std::cout << words[j] << " " << words[iPos] << " cruzan " << cruces << " veces con la letra "<<char(k+'A')<<"\n";
+                    // int ind_iPos = 0, ind_j = 0;
+                    // for(int m = 1; m <= cruces; m++)
+                    // {
+                    //     ind_iPos = words[iPos].find(k+'A', ind_iPos);
+                    //     ind_j = words[j].find(k+'A', ind_j);
+                    //     std::cout<<words[iPos] << " " << words[j] << " cruzan en " << ind_iPos++ << " " << ind_j << "\n";
+                        
+                    // }
                 }
+                cruces = 0;
                 k++;
             }
 
+
             //If cruces, ver si cabe en la matriz volteando verticalHorizontal usando mismo randLine ya que es cuadrado
-            if(cruces > 0)
-            {
-                //Cruce es valido si la letra que tiene cruce va de init a su tama;o y estos estan dentro de 0 y maxSize
-                std::cout<<words[j] << " tiene " << cruces << " cruces con " << words[iPos] << "\n";
-            }
-            else
-            {
-                std::cout<<words[j] << " no tiene cruces con " << words[iPos] << "\n";
-            }
+            // if(cruces > 0)
+            // {
+            //     //Cruce es valido si la letra que tiene cruce va de init a su tama;o y estos estan dentro de 0 y maxSize
+            //     std::cout<<words[j] << " tiene " << cruces << " cruces con " << words[iPos] << "\n";
+            // }
+            // else
+            // {
+            //     std::cout<<words[j] << " no tiene cruces con " << words[iPos] << "\n";
+            // }
         }
     }
 }
