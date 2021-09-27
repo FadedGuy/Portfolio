@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <time.h>
 #include <map>
+#include <math.h>
 
 #define MAX_SIZE_MAT 35
 #define MAX_WORDS 10
@@ -12,6 +13,9 @@
 /********************
  * Tiene que haber minimo 2 palabras en la sopa de letras
  * El tam minimo de cada palabra es de 3 y el maximo de MAX_SIZE_MAT
+ * 
+ * TODO
+ *  -Cambiar codigo a distintos archivos y mas funciones 
  ********************/
 
 int checkFile(std::string filename)
@@ -90,7 +94,7 @@ void printAllWords(std::vector<std::string> &wordList)
     }
 }
 
-void insertWordMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], std::vector<std::string> &words, int maxSize, int iPos, std::map<char, int> wordListMap[], int sizeWordListMapped)
+void insertWordMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], std::vector<std::string> &words, int maxSize, int iPos, std::map<char, int> wordListMap[])
 {
     /*********************
      * wordListMap podria usarse para ver si una palabra cruza en alguna letra con las palabras anteriores para saber si es que un cruce es favorable
@@ -100,24 +104,43 @@ void insertWordMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], std::vector<std::str
     int verticalHorizontal = rand() % 2; //Elige si va en vertical o horizontal (a futuro tambien diagonal)
     int init = 0;
     if(maxSize - words[iPos].size() > 0){init = rand()% (maxSize - words[iPos].size());} //Elige en que posicion inicia la palabra dentro de los limites y de su tamano. Default 0
-    std::cout<<"Line: " << randLine << " Vertical: " << verticalHorizontal << " Init: " << init << "\n";
-    if(verticalHorizontal == 0) //Vertical line
+    //std::cout<<"Line: " << randLine << " Vertical: " << verticalHorizontal << " Init: " << init << "\n";
+    if(iPos == 0)
     {
+        //Hacer esta insercion funcion
         for(int j = 0; j < words[iPos].size(); j++)
         {
-            mat[init][randLine] = words[iPos][j];
-            init++;
-        }
-        }
-    else //Horizontal line
-    {
-        for(int j = 0; j < words[iPos].size(); j++)
-        {
-            mat[randLine][init] = words[iPos][j];
+            verticalHorizontal == 0 ? mat[init][randLine] = words[iPos][j] : mat[randLine][init] = words[iPos][j];
             init++;
         }
     }
+    else
+    {
+        for(int j = iPos-1; j >= 0; j--)
+        {
+            int cruces = 0, k = 0; 
+            while (k < wordListMap[j].size() && k < wordListMap[iPos].size())
+            {   
+                if(wordListMap[j][k] > 0 && wordListMap[iPos][k] > 0) //No esta vacia esa casilla de la letra
+                {
+                    //std::cout<<"Cruce en " << static_cast<char>(k+'A')<<" ";
+                    wordListMap[j][k] > wordListMap[iPos][k] ? cruces+=wordListMap[j][k] : cruces+=wordListMap[iPos][k];
+                }
+                k++;
+            }
 
+            //If cruces, ver si cabe en la matriz volteando verticalHorizontal usando mismo randLine ya que es cuadrado
+            if(cruces > 0)
+            {
+                //Cruce es valido si la letra que tiene cruce va de init a su tama;o y estos estan dentro de 0 y maxSize
+                std::cout<<words[j] << " tiene " << cruces << " cruces con " << words[iPos] << "\n";
+            }
+            else
+            {
+                std::cout<<words[j] << " no tiene cruces con " << words[iPos] << "\n";
+            }
+        }
+    }
 }
 
 int main(int argc, char *argv[])
@@ -137,15 +160,15 @@ int main(int argc, char *argv[])
         getWordList(argv[1], wordList, maxSizeWord, wordListMapped, sizeWordListMapped);
         if(wordList.size() > 1 && maxSizeWord >= 2 && maxSizeWord <= MAX_SIZE_MAT)
         {
-            // for(int i = 0; i < sizeWordListMapped; i++)
-            // {
-            //     for(int j = 0; j < wordListMapped[i].size(); j++)
-            //     {
-            //         std::cout<<wordListMapped[i][j]<<" ";
-            //     }
-            //     std::cout<<"\t:"<<wordList[i];
-            //     std::cout<<"\n";
-            // }
+            for(int i = 0; i < sizeWordListMapped; i++)
+            {
+                for(int j = 0; j < wordListMapped[i].size(); j++)
+                {
+                    std::cout<<wordListMapped[i][j]<<" ";
+                }
+                std::cout<<"\t:"<<wordList[i];
+                std::cout<<"\n";
+            }
             char matrix[MAX_SIZE_MAT][MAX_SIZE_MAT];
             fillMatrixRandom(matrix, maxSizeWord);
             printMatrix(matrix, maxSizeWord);
@@ -155,7 +178,7 @@ int main(int argc, char *argv[])
             srand(time(NULL));
             for(int i = 0; i < wordList.size(); i++)
             {
-                insertWordMatrix(matrix, wordList, maxSizeWord, i, wordListMapped, sizeWordListMapped);
+                insertWordMatrix(matrix, wordList, maxSizeWord, i, wordListMapped);
             }
             printMatrix(matrix, maxSizeWord);
         }
