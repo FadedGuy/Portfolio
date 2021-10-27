@@ -97,7 +97,8 @@ void printAllWords(std::vector<std::string> &wordList)
 
 void charInsertMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], int line, int lineBegin, std::string word, int direction, int limits)
 {
-	//dx y dy para la direccion
+    //0 para abajo
+    //1 para izquierda
 	//Todo se hace en fors distintos para evitar aumentar la complejidad a lo baboso
 	//Chequeo inicial si toda la linea esta libre, si no esta libre la linea, checar si alguna letra de la linea se encuentra en word, si se encuentra, intentar hacer cruce. 
 	//Si el cruce es valido, insertar, si no es valido, generar una nueva posicion
@@ -109,12 +110,6 @@ void charInsertMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], int line, int lineBe
 	{
 		charsWord[toupper(word[j]) - 'A']++;
 	}
-	// for(int j = 0; j < charsWord.size(); j++)
-	// {
-	// 	std::cout<<charsWord[j]<<" ";
-	// }
-	// std::cout<<word<<"\n";
-
 	//Chequeo de linea si esta libre
 	while(direction == 0 && i < word.size() && mat[lineCnt][line] == FILL_CHARACTER)
 	{
@@ -128,9 +123,38 @@ void charInsertMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], int line, int lineBe
 		//Al no saber a que palabra pertenece la letra no es posible usar el map para evitar usar find, pero si se puede usar find para cada encuentro.
 		for(int z = 0; z < limits; z++)
 		{
-			if(word.find(mat[z][line]) != std::string::npos)
+            //std::cout<<mat[z][line]<<" ";
+            int posFind = 0;
+            while(word.find(mat[z][line], posFind) != std::string::npos && posFind<word.size())
 			{
-				std::cout<<"Hay match para "<<word << " con "<<mat[z][line]<<"\n";
+                posFind = word.find(mat[z][line], posFind);
+				std::cout<<"Hay match para "<<word << " con "<<mat[z][line]<< " en "<< z << " " << line<<" posFind"<<posFind<<" size:" << word.size()-1<<"\n";
+                //Se checa line en esta caso ya que el cruce iria de derecha a izquierda
+                if(z-posFind >= 0 && (word.size()-1-posFind)+z < limits)
+                {
+                    int inicial = z-posFind;
+                    int final = (word.size()-1-posFind)+z;
+                    std::cout<<"SI CABE " << inicial<<"\n";
+                    bool posibleMeter = false;
+                    std::cout<<"Veredicto: "<<posibleMeter<<"\n";
+                    for(int x = inicial; x <= final; x++)
+                    {
+                        if(mat[x][line] == FILL_CHARACTER || mat[x][line] == word[x-inicial])
+                        {
+                            posibleMeter = true;
+                        }
+                        else
+                        {
+                            posibleMeter = false;
+                            break;
+                        }
+                        std::cout<<mat[x][line]<<" "<<word[x-inicial]<<"\n";
+                    }
+                    std::cout<<"Veredicto: "<<posibleMeter<<"\n";
+                }else{
+                    std::cout<<"NO CABE\n";
+                }
+                posFind++;
 			}
 		}
 		std::cout << "\nNo libre para "<<word<<" en la posicion " << line<<","<<lineCnt<<" en direccion:"<<direction<<" >"<<mat[lineCnt][line]<<"\n";
@@ -148,10 +172,33 @@ void charInsertMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], int line, int lineBe
 		printMatrix(mat, limits);
 		for(int z = 0; z < limits; z++)
 		{
-			if(word.find(mat[line][z]) != std::string::npos)
-			{
-				std::cout<<"Hay match para "<<word << " con "<<mat[line][z]<<"\n";
-			}
+            //std::cout<<mat[line][z]<<" ";
+            int posFind = 0;
+            while(word.find(mat[line][z], posFind) != std::string::npos && posFind<word.size())
+            {
+                posFind = word.find(mat[line][z], posFind);
+                std::cout<<"Hay match para "<<word << " con "<<mat[line][z]<< " en "<< line << " " << z<<" posFind"<<posFind<<" size:" << word.size()-1<<"\n";
+                if(line-posFind >= 0 && (word.size()-1-posFind)+line < limits){
+                    int inicial = line-posFind;
+                    int final = (word.size()-1-posFind)+line;
+                    bool posibleMeter = true;
+                    std::cout<<"Veredicto: "<<posibleMeter<<"\n";
+                    std::cout<<"SI CABE "<<inicial<<"\n";
+                    for(int x = inicial; x <= final; x++)
+                    {
+                        std::cout<<mat[line][x]<<" ";
+                        if(mat[line][x] != FILL_CHARACTER || mat[line][x] != word[x-inicial])
+                        {
+                            posibleMeter = false;
+                            break;
+                        }
+                    }
+                    std::cout<<"Veredicto: "<<posibleMeter<<"\n";
+                }else{
+                    std::cout<<"NO CABE\n";
+                }
+                posFind++;
+            }
 		}
 		//Checar invirtiendo direccion y usando line para recorrer la linea y checar si esa linea opuesta tiene algun caracter presente tambien en la palabra actual
 		std::cout << "\nNo libre para "<<word<<" en la posicion " << lineCnt<<","<<line<<" en direccion:"<<direction<<" >"<<mat[line][lineCnt]<<"\n";
@@ -159,6 +206,7 @@ void charInsertMatrix(char mat[MAX_SIZE_MAT][MAX_SIZE_MAT], int line, int lineBe
 	}
 
 	lineCnt = lineBegin;
+    std::cout<<"Dir: "<<direction<<" "<<word<<"\n";
     for(int i = 0; i < word.size(); i++)
     {
 		if(direction == 0)
