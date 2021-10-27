@@ -33,7 +33,7 @@ std::vector<std::string> getWordsFile(std::string filename, int word_limit)
         }
         else if((c == '\n' || c == ','))
         {
-            if(line.size() > 1)
+            if(line.size() >= 2) //Verifica que la palabra que se va a ingresar es minimo de 3 letras
             {
                 words.push_back(line);
                 line.clear();

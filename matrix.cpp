@@ -7,11 +7,13 @@ matrix_t* newMat()
     if(mat == NULL)
         return NULL;
 
+    int cnt = 0;
     for(int i = 0; i < MAX_SIZE_MAT; i++)
     {
         for(int j = 0; j < MAX_SIZE_MAT; j++)
         {
             mat->mat[i][j] = FILL_CHAR;
+            cnt++;
         }
     }
 
@@ -31,6 +33,45 @@ matrix_t* insertWordsMat(matrix_t* mat, std::string filename)
     }
     mat->sizeMat = setSizeMat(words);
 
+    srand(time(NULL));
+    for(int i = 0; i < words.size(); i++)
+    {
+        mat = verifyAndInsertMat(mat, words[i]);
+    }
+
+    return mat;
+}
+
+matrix_t* verifyAndInsertMat(matrix_t* mat, std::string word)
+{
+    int colRow = rand()% mat->sizeMat;
+    int x = rand()% 2;
+    int y = x == 0 ? 1 : 0;
+    int diff = (mat->sizeMat - (word.size()-1));
+    int pos = rand()% diff;
+    int xI = pos, yI = pos;
+    bool possible = true;
+
+    while(possible && ((xI < word.size()+pos) && (yI < word.size()+pos)))
+    {
+            if(mat->mat[yI][xI] != FILL_CHAR)
+        {
+            possible = false;
+        }
+        yI+=y;
+        xI+=x;
+    }
+
+    if(possible)
+    {
+        std::cout<<"Space for "<<word << " available\n";
+        mat->words[mat->sizeWords] = word;
+        mat->sizeWords++;
+    }
+    else
+    {
+        std::cout<<"Space for "<<word << " not available\n";
+    }
     return mat;
 }
 
@@ -53,9 +94,9 @@ void printMat(matrix_t *mat)
         return;
     }
 
-    for(int i = 0; i < MAX_SIZE_MAT; i++)
+    for(int i = 0; i < mat->sizeMat; i++)
     {
-        for(int j = 0; j < MAX_SIZE_MAT; j++)
+        for(int j = 0; j < mat->sizeMat; j++)
         {
             std::cout<<mat->mat[i][j]<<" ";
         }
@@ -65,7 +106,7 @@ void printMat(matrix_t *mat)
     std::cout<<"\tWords in Soup\n";
     for(int i = 0; i < mat->sizeWords; i++)
     {
-        std::cout<<i<<". "<<mat->words[i]<<"\n";
+        std::cout<<i+1<<". "<<mat->words[i]<<"\n";
     }
 }
 
