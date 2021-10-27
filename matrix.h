@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #define MAX_SIZE_MAT 35
 #define MAX_WORDS 10
@@ -13,8 +14,8 @@ typedef struct{
     int sizeWords;
 }matrix_t;
 
-
-
 matrix_t* newMat();
+matrix_t* insertWordsMat(matrix_t*, std::string);
+int setSizeMat(std::vector<std::string>);
 void printMat(matrix_t *);
 void freeMat(matrix_t*);

@@ -1,9 +1,6 @@
 #include "matrix.h"
 #include "fileMan.h"
-
 #include <iostream>
-#include <string>
-#include <fstream>
 
 int main(int argc, char *argv[])
 {
@@ -15,14 +12,21 @@ int main(int argc, char *argv[])
 
     if(checkFile(argv[1]) != 0)
     {
-        std::cerr<<"Error with file" << argv[1] << "\n";
+        std::cerr<<"Error while opening file" << argv[1] << "\n";
         return 1;
     }
 
-    matrix_t *mat = newMat();
+    matrix_t *mat = insertWordsMat(newMat(), argv[1]);
+    if(mat == NULL)
+    {
+        std::cerr<<"Unable to allocate space\n";
+        return 1;
+    }
+
     printMat(mat);
 
     std::cout<<"Sucess with file\n";
 
+    free(mat);
     return 0;
 }
