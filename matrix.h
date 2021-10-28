@@ -4,6 +4,7 @@
 #include <vector>
 #include <time.h>
 
+// Make MAX_SIZE_MAT and MAX_WORDS variable in function of the space available
 #define MAX_SIZE_MAT 35
 #define MAX_WORDS 10
 #define FILL_CHAR '0'

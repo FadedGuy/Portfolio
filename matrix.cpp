@@ -25,6 +25,9 @@ matrix_t* newMat()
 
 matrix_t* insertWordsMat(matrix_t* mat, std::string filename)
 {
+    if(mat == NULL)
+        return mat;
+
     std::vector<std::string> words = getWordsFile(filename, MAX_WORDS);
     if(words.size() == 0)
     {
@@ -54,7 +57,7 @@ matrix_t* verifyAndInsertMat(matrix_t* mat, std::string word)
 
     while(possible && ((xI < word.size()+pos) && (yI < word.size()+pos)))
     {
-            if(mat->mat[yI][xI] != FILL_CHAR)
+        if(mat->mat[yI][xI] != FILL_CHAR)
         {
             possible = false;
         }
@@ -65,6 +68,16 @@ matrix_t* verifyAndInsertMat(matrix_t* mat, std::string word)
     if(possible)
     {
         std::cout<<"Space for "<<word << " available\n";
+        xI = pos; yI = pos;
+        int wrdCnt = 0;
+        while((xI < word.size()+pos) && (yI < word.size()+pos))
+        {
+            mat->mat[yI][xI] = word[wrdCnt];
+            wrdCnt++;
+            xI+=x;
+            yI+=y;
+        }
+
         mat->words[mat->sizeWords] = word;
         mat->sizeWords++;
     }
@@ -72,6 +85,7 @@ matrix_t* verifyAndInsertMat(matrix_t* mat, std::string word)
     {
         std::cout<<"Space for "<<word << " not available\n";
     }
+    
     return mat;
 }
 
