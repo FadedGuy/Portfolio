@@ -23,9 +23,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    fillSpacesMat(mat);
     printMat(mat);
-
-    std::cout<<"Sucess with file\n";
 
     free(mat);
     return 0;

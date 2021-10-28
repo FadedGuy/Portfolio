@@ -34,18 +34,26 @@ matrix_t* insertWordsMat(matrix_t* mat, std::string filename)
         std::cerr<<"Unable to parse file " << filename << "\n";
         return mat;
     }
-    mat->sizeMat = setSizeMat(words);
 
-    srand(time(NULL));
+
     for(int i = 0; i < words.size(); i++)
     {
-        mat = verifyAndInsertMat(mat, words[i]);
+        std::cout<<i<<". "<<words[i]<<"\n";
+    }
+        srand(time(NULL));
+
+    mat->sizeMat = setSizeMat(words);
+    for(int i = 0; i < words.size(); i++)
+    {
+    srand(time(NULL));
+
+        mat = verifyAndInsertMat(mat, words[i], 0);
     }
 
     return mat;
 }
 
-matrix_t* verifyAndInsertMat(matrix_t* mat, std::string word)
+matrix_t* verifyAndInsertMat(matrix_t* mat, std::string word, int tries)
 {
     int colRow = rand()% mat->sizeMat;
     int x = rand()% 2;
@@ -67,7 +75,6 @@ matrix_t* verifyAndInsertMat(matrix_t* mat, std::string word)
 
     if(possible)
     {
-        std::cout<<"Space for "<<word << " available\n";
         xI = pos; yI = pos;
         int wrdCnt = 0;
         while((xI < word.size()+pos) && (yI < word.size()+pos))
@@ -83,9 +90,27 @@ matrix_t* verifyAndInsertMat(matrix_t* mat, std::string word)
     }
     else
     {
-        std::cout<<"Space for "<<word << " not available\n";
+        //std::cout<<"Space for "<<word << " not available\n";
+        if(tries < MAX_TRIES)
+            verifyAndInsertMat(mat, word, tries+1);
     }
-    
+
+    return mat;
+}
+
+matrix_t* fillSpacesMat(matrix_t* mat)
+{
+    for(int i = 0; i < mat->sizeMat; i++)
+    {
+        for(int j = 0; j < mat->sizeMat; j++)
+        {
+            if(mat->mat[i][j] == FILL_CHAR)
+            {
+                mat->mat[i][j] = 'A' + rand()% 26;
+            }
+        }
+    }
+
     return mat;
 }
 
@@ -97,7 +122,7 @@ int setSizeMat(std::vector<std::string> wordList)
         if(max < wordList[i].size()) 
             max = wordList[i].size();
     }
-    return max;
+    return max + (2+rand()%3);
 }
 
 void printMat(matrix_t *mat)
