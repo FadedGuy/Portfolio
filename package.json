@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/FadedGuy/SoupDeLetras/issues"
   },
-  "homepage": "https://github.com/FadedGuy/SoupDeLetras#readme"
+  "homepage": "https://github.com/FadedGuy/SoupDeLetras#readme",
+  "dependencies": {
+    "node-static": "^0.7.11"
+  }
 }
