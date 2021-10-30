@@ -1,24 +1,38 @@
 const http = require('http');
-const static = require('node-static');
 const fs = require('fs');
+const url = require('url');
+
 const { exec } = require('child_process');
 
-// const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
-const file = new(static.Server)(__dirname);
 
 const server = http.createServer((req, res) => {
-   res.writeHead(200, { 'Content-Type': 'text/html' });
-
-   fs.readFile('index.xhtml', (error, data) => {
-       if(error){
-           res.writeHead(404);
-           res.write(`Error: file not found`);
-        } else {
+    const path = url.parse(req.url).pathname;
+    fs.readFile(__dirname + path, (err, data) => {
+        if(err){
+            res.writeHead(404);
+            res.write('This page doesn\'t exist');
+            res.end();
+        }else{
+            res.writeHead(200, {
+                'Content-Type' : 'text/html'
+            });
             res.write(data);
+            res.end();
         }
-        res.end();
     });
+
+    /*console.log(exec('ls -a', (err, stdout, stderr) => {
+        if(err){
+            console.log(`error: ${err.message}`);
+            return;
+        }
+        if(stderr){
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    }));*/
 });
 
 server.listen(port, (error) => {
