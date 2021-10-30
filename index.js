@@ -5,10 +5,10 @@ const { exec } = require('child_process');
 
 // const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
-const file = new(static.Server)(__dirname);
+const fileServer = new static.Server('./');
 
 const server = http.createServer((req, res) => {
-   res.writeHead(200, { 'Content-Type': 'text/html' });
+   /*res.writeHead(200, { 'Content-Type': 'text/html' });
 
    fs.readFile('index.xhtml', (error, data) => {
        if(error){
@@ -18,7 +18,8 @@ const server = http.createServer((req, res) => {
             res.write(data);
         }
         res.end();
-    });
+    });*/
+    fileServer.serve(req, res);
 });
 
 server.listen(port, (error) => {
