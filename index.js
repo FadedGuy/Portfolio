@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
     const path = url.parse(req.url).pathname;
+    //Redirect __dirname to /index.xhtml
     fs.readFile(__dirname + path, (err, data) => {
         if(err){
             res.writeHead(404);
