@@ -3,6 +3,7 @@ const fs = require('fs');
 const url = require('url');
 
 const { exec } = require('child_process');
+//What's the best way to 
 const allowedPaths = ["/index.xhtml", "/src/scriptsJs/index.js"];
 
 const port = process.env.PORT || 3000;
@@ -10,6 +11,7 @@ const port = process.env.PORT || 3000;
 const server = http.createServer((req, res) => {
     const path = url.parse(req.url).pathname;
     if(allowedPaths.indexOf(path) != -1){
+        //Check if its extension and sent it as such
         console.log("Includes\n");
         fs.readFile(__dirname + path, (err, data) => {
             if(err){
