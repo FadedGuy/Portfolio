@@ -3,21 +3,32 @@ const fs = require('fs');
 const url = require('url');
 
 const { exec } = require('child_process');
-//What's the best way to 
-const allowedPaths = ["/index.xhtml", "/src/scriptsJs/index.js"];
 
 const port = process.env.PORT || 3000;
+const pageNotFound_path = '/assets/pages/404.xhtml';
+
+const pageNotFound = (path, res) => {
+    fs.readFile(__dirname + path, (err, data) => {
+        if(err){
+            res.writeHead(404);
+            res.write('This page doesn\'t exist');
+            res.end();
+        } else {
+            res.writeHead(404, {
+                'Content-Type' : 'text/html',
+            });
+            res.write(data);
+            res.end();
+        }
+    })
+}
 
 const server = http.createServer((req, res) => {
     const path = url.parse(req.url).pathname;
-    if(allowedPaths.indexOf(path) != -1){
-        //Check if its extension and sent it as such
-        console.log("Includes\n");
+    if(path.includes('/assets/') || path === '/index.xhtml' || path === '/favicon.ico'){
         fs.readFile(__dirname + path, (err, data) => {
             if(err){
-                res.writeHead(404);
-                res.write('This page doesn\'t exist');
-                res.end();
+                pageNotFound(pageNotFound_path, res);
             }else{
                 res.writeHead(200, {
                     'Content-Type' : 'text/html'
@@ -26,18 +37,14 @@ const server = http.createServer((req, res) => {
                 res.end();
             }
         });
-    }else if(path == "/"){
-        console.log("Root\n");
+    }else if(path === "/"){
         res.writeHead(302, {
             location : "/index.xhtml", 
         });
         res.end();
     }
     else{
-        console.log("Non\n");
-        res.writeHead(418);
-        res.write("Unable to show page");
-        res.end();
+        pageNotFound(pageNotFound_path, res);
     }
 
     /*console.log(exec('ls -a', (err, stdout, stderr) => {
