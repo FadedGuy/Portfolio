@@ -25,13 +25,14 @@ const pageNotFound = (path, res) => {
 
 const server = http.createServer((req, res) => {
     const path = url.parse(req.url).pathname;
-    if(path.includes('/assets/') || path === '/index.xhtml' || path === '/favicon.ico'){
+    if(path.includes('/assets/') || path === '/index.html' || path === '/favicon.ico'){
+        const extension = "text/" + path.slice(path.indexOf('.')+1, path.length);
         fs.readFile(__dirname + path, (err, data) => {
             if(err){
                 pageNotFound(pageNotFound_path, res);
             }else{
                 res.writeHead(200, {
-                    'Content-Type' : 'text/html'
+                    'Content-Type' : extension,
                 });
                 res.write(data);
                 res.end();
@@ -39,7 +40,7 @@ const server = http.createServer((req, res) => {
         });
     }else if(path === "/"){
         res.writeHead(302, {
-            location : "/index.xhtml", 
+            location : "/index.html", 
         });
         res.end();
     }
