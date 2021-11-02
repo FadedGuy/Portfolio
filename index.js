@@ -5,7 +5,7 @@ const url = require('url');
 const { exec } = require('child_process');
 
 const port = process.env.PORT || 3000;
-const pageNotFound_path = '/assets/pages/404.html';
+const pageNotFound_path = '/404.html';
 const pagesURL = ['/index.html', '/about.html', '/projects.html', '/contact.html'];
 
 const pageNotFound = (path, res) => {
