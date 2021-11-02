@@ -174,11 +174,25 @@
 }
 
 .fa::before{
+        padding: 20px;  
+        text-align: center;  
+        margin: 5px 2px;  
+        font-size: 30px;  
+        
+}    
+
+.fas{
+    text-decoration: none;
+    opacity: 0%;
+    width: 50px;
+    color: var(--cross-color);
+}
+
+.fas::before{
     padding: 20px;  
     text-align: center;  
     margin: 5px 2px;  
     font-size: 30px;  
-    
 }
 
 .fa-github:hover{
@@ -186,4 +200,9 @@
 }
 .fa-linkedin:hover{
     color: rgb(40,88,200,80);
+}
+
+.fa-egg:hover{
+    opacity: 100%;
+    color: white;
 }
