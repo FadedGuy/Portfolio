@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content : center;
+    align-items: center;
+    line-height: 1.2;
+    font-family: 'Roboto', sans-serif;
+}
+
+.split {
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    
+}
+
+.left {
+    left: 0;
+    width: 40vw;
+    background: white;
+    /* background: url(/assets/images/bg404.png); */
+    /* background-size: cover; */
+    padding-top: 20%;
+}   
+
+@media screen and (orientation:portrait) 
+{
+    .left {
+        padding-top: 50%;
+    }   
+}
+
+.right {
+    right: 0;
+    width: 60vw;
+    background-color: rgb(54, 186, 246, 96);
+}
+
+.containter .bigFont {
+    text-align: center;
+    font-weight: bold;
+    font-size: 62px;
+}
+
+.containter .midFont {
+    text-align: center;
+    font-size: 28px;
+}
+
+.containter .btnHome {
+    border: none;
+    border-radius: 8px;
+    padding: 15px 15px;
+    background: rgb(128, 209, 247, 97);
+    color: black;
+    margin-top: 15px;
+    margin-left: 30px;
+    font-size: 15px;
+    transition-duration: 0.5s;
+}
+
+.containter .btnHome:hover {
+    background: rgb(43, 146, 194, 76);
+    margin-left: 45px;
+    transition-duration: 0.5s;
+}
