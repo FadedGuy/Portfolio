@@ -5,7 +5,8 @@ const url = require('url');
 const { exec } = require('child_process');
 
 const port = process.env.PORT || 3000;
-const pageNotFound_path = '/assets/pages/404.xhtml';
+const pageNotFound_path = '/assets/pages/404.html';
+const pagesURL = ['/index.html', '/about.html', '/projects.html', '/contact.html'];
 
 const pageNotFound = (path, res) => {
     fs.readFile(__dirname + path, (err, data) => {
@@ -25,7 +26,7 @@ const pageNotFound = (path, res) => {
 
 const server = http.createServer((req, res) => {
     const path = url.parse(req.url).pathname;
-    if(path.includes('/assets/') || path === '/index.html' || path === '/favicon.ico'){
+    if(path.includes('/assets/') || pagesURL.indexOf(path) != -1 || path === '/favicon.ico'){
         const extension = "text/" + path.slice(path.indexOf('.')+1, path.length);
         fs.readFile(__dirname + path, (err, data) => {
             if(err){
