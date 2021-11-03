@@ -98,9 +98,10 @@ body {
     border: 1px solid black;
 }
 #character{
-    width: 20px;
+    width: 50px;
     height: 50px;
-    background: navy;
+    background-image: url(/assets/images/404Dino.png);
+    background-size: contain;
     position:relative;
     top: 150px;
     border-radius: 2px;
@@ -123,7 +124,7 @@ body {
     position: relative;
     top: 130px;
     left: 500px;
-    animation: block 1.5s infinite linear;
+    animation: block 1s infinite linear;
 }
 @keyframes block{
     0%{left: 500px}
