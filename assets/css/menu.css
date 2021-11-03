@@ -2,8 +2,8 @@
     --cross-color: white;
     --bg-menu: black;
     --bg-color: rgb(54, 186, 246, 96);
-    --shade-menu:purple;
-    --shade-selected: orange;
+    --shade-menu: rgb(90,15,245,96);
+    --shade-selected: rgb(245,27,36,96);
 }
 
 * {
@@ -124,7 +124,7 @@
   
 .menu-wrap .menu > div {
     background: var(--bg-menu);
-    opacity: 80%;
+    opacity: 85%;
     border-radius: 50%;
     width: 200vw;
     height: 200vw;
@@ -158,13 +158,15 @@
 
 
 /* Current page in menu */
-.menu-wrap .menu > div > div > ul > li > a.selected {
-    color: var(--shade-selected);
-}
 
 .menu-wrap .menu > div > div > ul > li > a:hover {
     color: var(--shade-menu);
 }
+
+.menu-wrap .menu > div > div > ul > li > a.selected {
+    color: var(--shade-selected);
+}
+
  /* Socials styles */
 .fa{
     text-decoration: none;

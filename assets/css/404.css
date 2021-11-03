@@ -37,6 +37,7 @@ body {
     /* background: url(/assets/images/bg404.png); */
     /* background-size: cover; */
     padding-top: 20%;
+    overflow-x: clip;
 }   
 
 @media screen and (orientation:portrait) 
@@ -67,6 +68,7 @@ body {
     text-align: center;
     padding-top: 5px;
     font-size: 18px;
+    margin-left: 10px;
 }
 
 .containter .btnHome {
@@ -86,4 +88,44 @@ body {
     background: rgb(43, 146, 194, 76);
     margin-left: 75px;
     transition-duration: 0.5s;
+}
+
+.game{
+    width: 80%;
+    height: 200px;
+    margin-top: 20%;
+    margin-left: 5%;
+    border: 1px solid black;
+}
+#character{
+    width: 20px;
+    height: 50px;
+    background: navy;
+    position:relative;
+    top: 150px;
+    border-radius: 2px;
+}
+.animate{
+    animation: jump 0.3s linear;
+}
+@keyframes jump{
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;}
+}
+
+#block{
+    background-color: red;
+    width: 20px;
+    border-radius: 12px;
+    height: 20px;
+    position: relative;
+    top: 130px;
+    left: 500px;
+    animation: block 1.5s infinite linear;
+}
+@keyframes block{
+    0%{left: 500px}
+    100%{left: -20px}
 }

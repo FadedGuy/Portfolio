@@ -7,12 +7,12 @@
 	<link rel="stylesheet" href="assets/css/404.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Page not found</title>
+	<title>Page not found</title>
 </head>
 <!-- Disable game when in mobile -->
 
 <body>
-	<div class="containter">
+	<div class="containter" onclick="jump()">
 		<div class="split left">
 			<canvas id="c"></canvas>
 			<p class="bigFont">404</p>
@@ -21,7 +21,13 @@
 			<button onclick="location.href='/index.html'" class="btnHome">Back to home page</button>
 		</div>
 		<div class="split right">
-			<p class="midFont">GAME HERE</p>
+			<p class="midFont" style="margin-top: 40px;">Seems like you've found a little treasure!</p>
+			<p class="semiMidFont">Press the screen to jump</p>
+			<div class="game">
+				<div id="character"></div>
+				<div id="block"></div>
+			</div>
+			<p style="padding-top: 30px; font-weight: bold;" class="semiMidFont">Score: <span id="scoreSpan"></span></p>
 		</div>
 	</div>
 	
@@ -47,6 +53,7 @@
 		</div>
 	</div>
 
+	<script type="text/javascript" src="/assets/scripts/game404.js"></script>
 	<script type="text/javascript" src="/assets/scripts/cursorAnimation.js"></script>
 </body>
 </html>
