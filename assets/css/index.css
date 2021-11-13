@@ -1,32 +1,83 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+html, body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.4;
 }
-  
-.showcase {
-    /* background: url(rul); */
-    background: var(--bg-color);
-    color: #fff;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+body{
+    background-image: url(/assets/images/bgIndex.jpg);
+    background-size: cover;
 }
-  
-.showcase:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+
+.divider{
     width: 100%;
     height: 100%;
-    z-index: -1;
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left: 0;
 }
-  
+
+.division{
+    box-sizing: border-box;
+    padding: 10px;
+    float:left;
+    width: 50%;
+    height: 50%;
+}
+
+.division.upLeft{
+    width: 50%;
+    height: 50%;
+    background-color: aqua;
+    transition: all 0.4s ease;
+}
+
+.division.upLeft:hover{
+    width: 100%;
+    height: 75%;
+    background-color: coral;
+    transition: all 0.4s ease;
+}
+
+.division.upRight{
+    height: 50%;
+    background-color: blueviolet;
+    transition: all 0.4s ease;
+}
+
+.division.upRight:hover{
+    height: 80%;
+    background-color: blue;
+    transition: all 0.4s ease;
+}
+
+.division.upRight:hover + .division.botLeft{
+    transform: translateY(-60%);
+    transition: all 0.4s ease;
+}
+
+.division.botLeft{
+    height: 50%;
+    background-color: cadetblue;
+    transition: all 0.4s ease;
+}
+
+.division.botLeft:hover{
+    height: 80%;
+    transform: translateY(-35%);
+    background-color: khaki;
+    transition: all 0.4s ease;
+}
+
+.division.botRight{
+    background-color: coral;
+    height: 50%;
+    transition: all 0.4s ease;
+}
+
+.division.botRight:hover{
+    background-color: magenta;
+    height: 80%;
+    transform: translateY(-35%);
+    transition: all 0.4s ease;
+}

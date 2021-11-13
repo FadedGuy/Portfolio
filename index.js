@@ -6,7 +6,7 @@ const { exec } = require('child_process');
 
 const port = process.env.PORT || 3000;
 const pageNotFound_path = '/404.html';
-const pagesURL = ['/index.html', '/about.html', '/projects.html', '/contact.html'];
+const pagesURL = ['/index.html', '/projects.html', '/contact.html'];
 
 const pageNotFound = (path, res) => {
     fs.readFile(__dirname + path, (err, data) => {
