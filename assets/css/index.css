@@ -11,6 +11,7 @@ body{
 /* Background gradient animation */
 @keyframes bg-gradient{
     0%{background-position: 10% 0%;}
+    40%{background-position: 100% 80%;}
     50%{background-position: 90% 100%;}
     100%{background-position: 10% 0%;}
 }
@@ -18,7 +19,6 @@ body{
 .divider{
     width: 100%;
     height: 100%;
-    overflow: hidden;
     position: fixed;
     top:0;
     left: 0;
@@ -41,6 +41,7 @@ body{
     justify-content: center;
     background-color: transparent;
     border: 1px solid #FFF;
+    overflow-x: auto;
 }
 
 /* up left division */
@@ -55,6 +56,24 @@ body{
     height: 75%;
     background-color: coral;
     transition: all 0.4s ease;
+}
+
+
+.division.upLeft .inactive{
+    display: flex;
+}
+
+.division.upLeft:hover .inactive{
+    display: none;
+}
+
+
+.division.upLeft .active{
+    display: none;
+}
+
+.division.upLeft:hover .active{
+    display: flex;
 }
 
 /* up right division */
@@ -74,6 +93,24 @@ body{
     transition: all 0.4s ease;
 }
 
+
+.division.upRight .inactive{
+    display: flex;
+}
+
+.division.upRight:hover .inactive{
+    display: none;
+}
+
+
+.division.upRight .active{
+    display: none;
+}
+
+.division.upRight:hover .active{
+    display: flex;
+}
+
 /* bot left division */
 .division.botLeft{
     height: 50%;
@@ -87,6 +124,24 @@ body{
     transition: all 0.4s ease;
 }
 
+
+.division.botLeft .inactive{
+    display: flex;
+}
+
+.division.botLeft:hover .inactive{
+    display: none;
+}
+
+
+.division.botLeft .active{
+    display: none;
+}
+
+.division.botLeft:hover .active{
+    display: flex;
+}
+
 /* bot right division */
 .division.botRight{    
     height: 50%;
@@ -98,5 +153,23 @@ body{
     height: 80%;
     transform: translateY(-35%);
     transition: all 0.4s ease;
+}
+
+
+.division.botRight .inactive{
+    display: flex;
+}
+
+.division.botRight:hover .inactive{
+    display: none;
+}
+
+
+.division.botRight .active{
+    display: none;
+}
+
+.division.botRight:hover .active{
+    display: flex;
 }
  
