@@ -15,6 +15,20 @@ body{
     50%{background-position: 90% 100%;}
     100%{background-position: 10% 0%;}
 }
+
+.inactive > h1{
+    color: black;
+}
+
+.active{
+    font-size: x-large;
+    font-size: 1svw;
+    margin: 7%;
+}
+
+.clean_link:link, .clean_link:visited{
+    color: inherit;
+}
 /* 4 way division */
 .divider{
     width: 100%;
