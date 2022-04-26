@@ -1,6 +1,7 @@
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 var counter = 0;
+var highscore = 0;
 
 function jump(){
     if(character.classList == "animate"){return}
@@ -16,6 +17,10 @@ var checkDead = setInterval(function() {
     if(blockLeft<20 && blockLeft>-20 && characterTop>=130){
         block.style.animation = "none";
         // alert("Game Over. score: "+Math.floor(counter/100));
+        if(counter > highscore){
+            document.getElementById("highscore").innerHTML = Math.floor(counter/100);
+            highscore = counter;
+        }
         counter=0;
         block.style.animation = "block 1s infinite linear";
     }else{
