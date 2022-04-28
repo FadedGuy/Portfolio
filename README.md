@@ -1,1 +1,1 @@
-SOPA DE LETRAS RECARGADOOOOOOOOOOO
+Era sopa de letras pero ahora es mi portfolio, se portara a futuro
