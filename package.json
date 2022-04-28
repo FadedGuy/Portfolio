@@ -18,7 +18,12 @@
   },
   "homepage": "https://github.com/FadedGuy/SoupDeLetras#readme",
   "dependencies": {
+<<<<<<< HEAD
     "node-static": "^0.7.11",
     "nodemon": "^2.0.15"
+=======
+    "minimist": "^1.2.5",
+    "node-static": "^0.7.11"
+>>>>>>> main
   }
 }
