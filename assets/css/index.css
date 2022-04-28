@@ -4,8 +4,11 @@ html, body {
 }
 
 body{
-    background-image: url(/assets/images/bgIndex.jpg);
     background-size: cover;
+}
+
+.clean_link:link, .clean_link:visited{
+    color: inherit;
 }
 
 /* Background gradient animation */
@@ -16,59 +19,6 @@ body{
     100%{background-position: 10% 0%;}
 }
 
-.inactive > h1{
-    color: black;
-}
-
-.active{
-    font-size: 1.5vw;
-    margin: 15%;
-}
-
-.division.upLeft > .active{
-    color: rgba(49, 49, 49, 1)
-}
-
-.division.upRight > .active{
-    color: rgba(245, 245, 245, 1)
-}
-
-.division.botLeft > .active{
-    color: rgba(80, 80, 80, 1)
-}
-
-.division.botRight > .active{
-    color: rgba(30, 30, 30, 1)
-}
-
-@media screen and (min-width: 320px) {
-    .active{
-        margin: 15%;
-        font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-    }
-
-    .division.upLeft > .active{
-        color: rgba(49, 49, 49, 1);
-    }
-
-    .division.upRight > .active{
-        color: rgba(245, 245, 245, 1);
-        font-size: calc(16px + 5 * ((100vw - 320px) / 680));
-    }
-    
-    .division.botLeft > .active{
-        color: rgba(80, 80, 80, 1);
-    }
-    
-    .division.botRight > .active{
-        color: rgba(30, 30, 30, 1);
-        font-size: calc(16px + 5 * ((100vw - 320px) / 680));
-    }
-}
-
-.clean_link:link, .clean_link:visited{
-    color: inherit;
-}
 /* 4 way division */
 .divider{
     width: 100%;
@@ -95,7 +45,11 @@ body{
     justify-content: center;
     background-color: transparent;
     border: 1px solid #FFF;
-    overflow-x: auto;
+}
+
+.active{
+    font-size: calc(16px + 6 * ((100vw - 380px) / 680));
+    margin: 15%;
 }
 
 /* up left division */
@@ -128,6 +82,10 @@ body{
 
 .division.upLeft:hover .active{
     display: flex;
+}
+
+.division.upLeft > .active{
+    color: rgba(49, 49, 49, 1)
 }
 
 /* up right division */
@@ -165,6 +123,10 @@ body{
     display: flex;
 }
 
+.division.upRight > .active{
+    color: rgba(245, 245, 245, 1)
+}
+
 /* bot left division */
 .division.botLeft{
     height: 50%;
@@ -194,6 +156,11 @@ body{
 
 .division.botLeft:hover .active{
     display: flex;
+}
+
+.division.botLeft > .active{
+    font-size: 1.7vh;
+    color: rgba(80, 80, 80, 1);
 }
 
 /* bot right division */
@@ -227,3 +194,26 @@ body{
     display: flex;
 }
  
+.division.botRight > .active{
+    font-size: 2.2vh;
+    color: rgba(30, 30, 30, 1)
+}
+
+/* Font size when bigger screen size */ 
+@media screen and (min-width: 380px) {
+    .active{
+        font-size: calc(16px + 6 * ((100vw - 380px) / 680));
+    }
+    
+    .division.upRight > .active{
+        font-size: calc(16px + 5 * ((100vw - 380px) / 680));
+    }
+    
+    .division.botLeft > .active{
+        font-size: calc(13px + 5 * ((100vw - 380px) / 680));
+    }
+    
+    .division.botRight > .active{
+        font-size: calc(16px + 5 * ((100vw - 380px) / 680));
+    }
+}
