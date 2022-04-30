@@ -1,6 +1,8 @@
 (function(main) {
     main();
-})(function() {
+})
+
+(function() {
 
     'use strict';
 

@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/menu.css">
+    <link rel="stylesheet" href="/assets/css/contact.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Contact me</title>
 </head>
+
 <body>
+    <canvas id="c"></canvas>
+    <div class="contact-form">
+        <form action="mailto:kevin.aceves@hotmail.com" method="post" enctype="text/plain">
+            <p class="txt-form">If you wish to contact me, fill the form and I'll reach out as soon as possible, or directly send me a mail to kevin.aceves@hotmail.com</p>
+            <div>
+                <input type="text" class="form-control" placeholder="First Name" name="First Name">
+                <input type="text" class="form-control" placeholder="Last Name" name="Last Name">
+            </div>
+            <div>
+                <input type="email" class="form-control" placeholder="E-mail" name="Email">
+                <input type="text" class="form-control" placeholder="Phone" name="Phone">
+            </div>
+            <textarea rows="5" placeholder="Message" class="form-control" name="Message"></textarea>
+            <input type="submit" class="send-btn" value="send">
+        </form>
+    </div>
+    
     <div class="menu-wrap">
         <input type="checkbox" class="toggler">
         <div class="hamburger"><div></div></div>
         <div class="menu">
             <div>
-            <div>
-                <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/projects.html">Projects</a></li>
-                <li><a href="/contact.html" class="selected">Contact</a></li>
-                <span class="icons">
-                    <a class="fa fa-github" href="https://github.com/FadedGuy"></a>
-                    <a class="fa fa-linkedin" href="https://www.linkedin.com/in/kevin-damian-aceves-siordia-679a47156"></a>
-                    <a class="fas fa-egg" href="/404.html"></a>
-                </span>
-                </ul>
-            </div>
+                <div>
+                    <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/projects.html">Projects</a></li>
+                    <li><a href="/contact.html" class="selected">Contact</a></li>
+                    <span class="icons">
+                        <a class="fa fa-github" href="https://github.com/FadedGuy"></a>
+                        <a class="fa fa-linkedin" href="https://www.linkedin.com/in/kevin-damian-aceves-siordia-679a47156"></a>
+                        <a class="fas fa-egg" href="/404.html"></a>
+                    </span>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    hablenme
-
+    <script type="text/javascript" src="/assets/scripts/cursorAnimation.js"></script>
 </body>
 </html>
