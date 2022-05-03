@@ -6,12 +6,6 @@
     --shade-selected: rgb(245,27,36,96);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
   /* MENU STYLES */
 .menu-wrap {
     position: fixed;

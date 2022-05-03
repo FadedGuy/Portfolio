@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/basic.css">
 	<link rel="stylesheet" href="/assets/css/menu.css">
 	<link rel="stylesheet" href="assets/css/404.css">
+	<script type="text/javascript" src="/assets/scripts/menu.js"></script>   
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Page not found</title>
@@ -32,26 +34,7 @@
 		</div>
 	</div>
 	
-	<div class="menu-wrap">
-		<input type="checkbox" class="toggler">
-		<div class="hamburger"><div></div></div>
-		<div class="menu">
-			<div>
-				<div>
-					<ul>
-						<li><a href="/index.html">Home</a></li>
-						<li><a href="/projects.html">Projects</a></li>
-						<li><a href="/contact.html">Contact</a></li>
-						<span class="icons">
-							<a class="fa fa-github" href="https://github.com/FadedGuy"></a>
-							<a class="fa fa-linkedin" href="https://www.linkedin.com/in/kevin-damian-aceves-siordia-679a47156"></a>
-							<a class="fas fa-egg" href="/404.html"></a>
-						</span>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="menu-wrap" id="menu-div"></div>
 
 	<script type="text/javascript" src="/assets/scripts/game404.js"></script>
 	<script type="text/javascript" src="/assets/scripts/cursorAnimation.js"></script>
