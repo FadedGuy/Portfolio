@@ -5,22 +5,6 @@ const path = require('path');
 
 const port = process.env.PORT || 3000;
 
-const pageNotFound = (path, res) => {
-    fs.readFile(__dirname + path, (err, data) => {
-        if(err){
-            res.writeHead(404);
-            res.write('This page doesn\'t exist');
-            res.end();
-        } else {
-            res.writeHead(404, {
-                'Content-Type' : 'text/html',
-            });
-            res.write(data);
-            res.end();
-        }
-    })
-}
-
 const server = http.createServer((req, res) => {
     // console.log(`${req.method} ${req.url}`);
 
@@ -39,7 +23,8 @@ const server = http.createServer((req, res) => {
       '.mp3': 'audio/mpeg',
       '.svg': 'image/svg+xml',
       '.pdf': 'application/pdf',
-      '.doc': 'application/msword'
+      '.doc': 'application/msword',
+      '.xml': 'application/xml'
     };
   
     fs.exists(pathname, function (exist) {
