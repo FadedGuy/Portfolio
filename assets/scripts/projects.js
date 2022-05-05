@@ -2,6 +2,23 @@
 
 window.addEventListener('load', main);
 
+const dict_langs ={
+    "BibTeX" : "bibtex",
+    "C++" : "cpp",
+    "C#" : "csharp",
+    "C" : "c",
+    "CSS" : "css",
+    "HTML" : "html",
+    "JavaScript" : "js",
+    "Other" : "other",
+    "Processing" : "processing",
+    "Procfile" : "procfile",
+    "Python" : "py",
+    "SCSS" : "scss",
+    "TeX" : "tex",
+    "TypeScript" : "ts",
+};
+
 function get_div(){
     return document.getElementById('app');
 }
@@ -21,6 +38,13 @@ async function get_languages(url){
 async function lang_array(repo, card){
     get_languages(repo.languages_url).then(langs => {
         const arr_langs = Object.entries(langs);
+        let card_tags = ""
+        
+        arr_langs.forEach(lang => {
+           card_tags += `
+                <span class="card-tag lang-${dict_langs[lang[0]]}">${lang[0]}</span>
+           `;
+        });      
 
         card.innerHTML += html`
             <div class="project-card">
@@ -29,42 +53,28 @@ async function lang_array(repo, card){
                     <a class="card-link" href="${repo.html_url}" target="blank">${repo.html_url}</a>
                 </div>
                 <div class="card-body">
-                    <p class"="card-realme">${repo.description !== null ? repo.description : "No description available"}</p>
+                    <p class"="card-description">${repo.description !== null ? repo.description : "No description available"}</p>
                     <br>
                     <div class="card-tags">
-                        <span class="card-tag">Erlang</span>
+                        ${card_tags}
+                    </div>
+                </div>
+            </div>
         `;
-
-        arr_langs.forEach(lang => {
-            console.log(lang);
-        });      
-
-        card.innerHTML += html`
-        </div></div></div>
-        `;
-
-        console.log("")
     });
-
 }
 
 function main(){
     https_get_github("fadedguy").then(json => {
         let div_cards = get_div();
-        let cards = "";
 
         if(div_cards === null){
             return null;
         }
 
         div_cards.innerHTML = "";
-
         json.forEach(repo => {
-            lang_array(repo, div_cards).then(lang => {
-                console.log();
-            })
+            lang_array(repo, div_cards);
         });
-
-        console.log(json);
     });
 }

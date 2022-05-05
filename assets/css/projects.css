@@ -5,10 +5,6 @@
     100%{background-position: 10% 0%;}
 }
 
-.clean_link:link, .clean_link:visited{
-    color: inherit;
-}
-
 .project-wrap{
     width: 100%;
     height: 100%;
@@ -53,15 +49,16 @@
     font-size: 1.8rem;
 }
 
-.card-link{
+.card-link, .card-link:visited{
     font-size: .8rem;
+    color: #82857F;
 }
 
 .card-body{
     padding-top: 7px;
 }
 
-.card-readme{
+.card-description{
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 4;
@@ -77,13 +74,4 @@
     font-size: .9rem; 
 }
 
-.lang-py{
-    background-color: red;
-    color: whitesmoke;
-}
-
-.lang-js{
-    background-color: yellow;
-    color: black;
-}
 
