@@ -2,8 +2,6 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 
-const { exec } = require('child_process');
-
 const port = process.env.PORT || 3000;
 const pageNotFound_path = '/404.html';
 const pagesURL = ['/index.html', '/projects.html', '/contact.html'];
@@ -55,18 +53,6 @@ const server = http.createServer((req, res) => {
     else{
         pageNotFound(pageNotFound_path, res);
     }
-
-    /*console.log(exec('ls -a', (err, stdout, stderr) => {
-        if(err){
-            console.log(`error: ${err.message}`);
-            return;
-        }
-        if(stderr){
-            console.log(`stderr: ${stderr}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-    }));*/
 });
 
 server.listen(port, (error) => {
