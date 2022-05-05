@@ -1,1 +1,3 @@
-Era sopa de letras pero ahora es mi portfolio, se portara a futuro
+# Portfolio
+My personal portfolio source code, currently only in english but a work in progress. 
+Deployed using heroku. Available at fadedguy.herokuapp.com
