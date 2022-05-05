@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://fadedguy.dev</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fadedguy.dev"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fadedguy.dev"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fadedguy.dev"/>
+  </url>
+  <url>
+    <loc>https://fadedguy.dev/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fadedguy.dev/index.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fadedguy.dev/index.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fadedguy.dev/index.html"/>
+  </url>
+  <url>
+    <loc>https://fadedguy.dev/projects.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fadedguy.dev/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fadedguy.dev/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fadedguy.dev/projects.html"/>
+  </url>
+  <url>
+    <loc>https://fadedguy.dev/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fadedguy.dev/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fadedguy.dev/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fadedguy.dev/contact.html"/>
+  </url>
+  <url>
+    <loc>https://fadedguy.dev/404.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://fadedguy.dev/404.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://fadedguy.dev/404.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fadedguy.dev/404.html"/>
+  </url>
+</urlset>
