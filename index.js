@@ -63,38 +63,6 @@ const server = http.createServer((req, res) => {
         }
       });
     });
-  
-
-    // const path = url.parse(req.url).pathname;
-    // const extension = path.slice(path.indexOf('.')+1, path.length);
-    // fs.readFile(__dirname + path, (err, data) => {
-    //     console.log(req.headers);
-    //     if(err){
-    //         pageNotFound(pageNotFound_path, res);
-    //     }else{
-    //         if(extension == "pdf" || extension == "xml"){
-    //             res.writeHead(200, {
-    //                 'Content-Type' : "application/" + extension,
-    //             });
-    //         }
-    //         else{
-    //             res.writeHead(200, {
-    //                 'Content-Type' : "text/" + extension,
-    //             });
-    //         }
-    //         res.write(data);
-    //         res.end();
-    //     }
-    // });
-    // if(path === "/"){
-    //     res.writeHead(302, {
-    //         location : "/index.html", 
-    //     });
-    //     res.end();
-    // }
-    // else{
-    //     pageNotFound(pageNotFound_path, res);
-    // }
 });
 
 server.listen(port, (error) => {
