@@ -24,27 +24,26 @@ const pageNotFound = (path, res) => {
 
 const server = http.createServer((req, res) => {
     const path = url.parse(req.url).pathname;
-    if(path.includes('/assets/') || pagesURL.indexOf(path) != -1 || path === '/favicon.ico'){
-        const extension = path.slice(path.indexOf('.')+1, path.length);
-        fs.readFile(__dirname + path, (err, data) => {
-            if(err){
-                pageNotFound(pageNotFound_path, res);
-            }else{
-                if(extension == "pdf"){
-                    res.writeHead(200, {
-                        'Content-Type' : "application/" + extension,
-                    });
-                }
-                else{
-                    res.writeHead(200, {
-                        'Content-Type' : "text/" + extension,
-                    });
-                }
-                res.write(data);
-                res.end();
+    const extension = path.slice(path.indexOf('.')+1, path.length);
+    fs.readFile(__dirname + path, (err, data) => {
+        if(err){
+            pageNotFound(pageNotFound_path, res);
+        }else{
+            if(extension == "pdf"){
+                res.writeHead(200, {
+                    'Content-Type' : "application/" + extension,
+                });
             }
-        });
-    }else if(path === "/"){
+            else{
+                res.writeHead(200, {
+                    'Content-Type' : "text/" + extension,
+                });
+            }
+            res.write(data);
+            res.end();
+        }
+    });
+    if(path === "/"){
         res.writeHead(302, {
             location : "/index.html", 
         });
