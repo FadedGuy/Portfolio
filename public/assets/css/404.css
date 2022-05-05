@@ -34,8 +34,6 @@ body {
     left: 0;
     width: 40vw;
     background: transparent;
-    /* background: url(/assets/images/bg404.png); */
-    /* background-size: cover; */
     padding-top: 20%;
     overflow-x: clip;
 }   
@@ -100,7 +98,7 @@ body {
 #character{
     width: 50px;
     height: 50px;
-    background-image: url(/assets/images/404Dino.png);
+    background-image: url(../images/404Dino.png);
     background-size: contain;
     position:relative;
     top: 150px;
