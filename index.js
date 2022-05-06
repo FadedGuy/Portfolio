@@ -6,7 +6,6 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
-    // console.log(`${req.method} ${req.url}`);
 
     const parsedUrl = url.parse(req.url);
     let pathname = `.${parsedUrl.pathname}`;
@@ -41,7 +40,7 @@ const server = http.createServer((req, res) => {
       fs.readFile(pathname, function(err, data){
         if(err){
           res.statusCode = 500;
-          res.end(`Error getting the file: ${err}.`);
+          res.end(`Error getting the file or page.`);
         } else {
           res.setHeader('Content-type', map[ext] || 'text/plain' );
           res.end(data);
