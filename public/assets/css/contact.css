@@ -8,9 +8,9 @@
 body {
     background-size: cover;
     background-origin: content-box;
-    background: linear-gradient(30deg, #556CD4, #69A4EB, #55AFD4);
+    background: linear-gradient(70deg, #556CD4, #69A4EB, #55AFD4);
     background-size: 150% 150%;
-    animation: bg-gradient 2.5s ease infinite;
+    animation: bg-gradient 4s ease infinite;
 }
 
 canvas {

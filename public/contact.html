@@ -25,8 +25,8 @@
 <body>
     <canvas id="c"></canvas>
     <div class="contact-form">
-        <form action="mailto:kevin.aceves@hotmail.com" method="post" enctype="text/plain">
-            <p class="txt-form">If you wish to contact me, fill the form and I'll reach out as soon as possible, or directly send me a mail to kevin.aceves@hotmail.com</p>
+        <form action="https://formsubmit.co/238994c45d8508a6de14809177af0562" method="POST">
+            <p class="txt-form">If you wish to contact me, fill the form and I'll reach out as soon as possible</p>
             <div>
                 <input type="text" class="form-control" placeholder="First Name" name="First Name">
                 <input type="text" class="form-control" placeholder="Last Name" name="Last Name">
@@ -35,6 +35,11 @@
                 <input type="email" class="form-control" placeholder="E-mail" name="Email">
                 <input type="number" class="form-control" placeholder="Phone" name="Phone">
             </div>
+            <input type="hidden" name="_next" value="thanks_form.html">
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_subject" value="FadedGuy form submission">
             <textarea rows="5" placeholder="Message" class="form-control" name="Message"></textarea>
             <input type="submit" class="send-btn" value="send">
         </form>

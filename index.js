@@ -23,7 +23,8 @@ const server = http.createServer((req, res) => {
       '.svg': 'image/svg+xml',
       '.pdf': 'application/pdf',
       '.doc': 'application/msword',
-      '.xml': 'application/xml'
+      '.xml': 'application/xml',
+      '.php': 'application/x-httpd-php'
     };
   
     fs.exists(pathname, function (exist) {
