@@ -19,9 +19,9 @@ const dict_langs ={
     "TypeScript" : "ts",
 };
 
-function get_div(){
-    return document.getElementById('app');
-}
+let sum_lines = 0;
+let list_langs = [];
+let nb_projects = 0;
 
 async function https_get_github(user){
     const response = await fetch(`https://api.github.com/users/${user}/repos`);
@@ -30,9 +30,11 @@ async function https_get_github(user){
 }
 
 async function get_languages(url){
-    const response = await fetch(url);
-    const json_response = await response.json();
-    return json_response;
+    return await new Promise((res, err) => {
+        fetch(url).then(response => {
+            res(response.json());
+        });
+    })
 }
 
 async function lang_array(repo, card){
@@ -41,6 +43,10 @@ async function lang_array(repo, card){
         let card_tags = ""
         
         arr_langs.forEach(lang => {
+            sum_lines += lang[1];
+            if(list_langs.find(element => element == lang[0]) == undefined){
+                list_langs.push(lang[0]);
+            }
            card_tags += `
                 <span class="card-tag lang-${dict_langs[lang[0]]}">${lang[0]}</span>
            `;
@@ -61,19 +67,24 @@ async function lang_array(repo, card){
                 </div>
             </div>
         `;
+
+        /*Ik bad idea*/
+        document.getElementById("nb-projects").innerHTML = nb_projects;
+        document.getElementById("nb-langs").innerHTML = list_langs.length;
+        document.getElementById("nb-lines").innerHTML = sum_lines;
     });
 }
 
 function main(){
     https_get_github("fadedguy").then(json => {
-        let div_cards = get_div();
-
+        let div_cards = document.getElementById('app');
+        nb_projects = Object.entries(json).length;
+        
         if(div_cards === null){
             return null;
         }
-
-        div_cards.innerHTML = "";
-        json.forEach(repo => {
+        
+        json.forEach((repo) => {
             lang_array(repo, div_cards);
         });
     });

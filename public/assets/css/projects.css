@@ -28,6 +28,18 @@
     align-items: center;
 }
 
+.project-head{
+    display: inline;
+    padding: 1rem;
+    margin: 25px 4rem 25px 4rem;
+    border: 4px solid black;
+    border-radius: 8px; 
+    width: clamp(30rem, calc(30rem + 2vw), 35rem);
+    overflow: hidden;
+    background-color: white;
+    opacity: 90%;
+}
+
 .project-card{
     padding: 1rem;
     margin: 8px;
