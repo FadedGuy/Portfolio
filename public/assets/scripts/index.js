@@ -33,42 +33,78 @@ function click(click_id){
 
 function click_t1(){
     let t1 = document.getElementById('t1');
-    if(t1 === null){
+    let extra = document.getElementById('extra');
+    if(t1 === null || extra === null){
         return;
     }
 
     click("t1")
-    t1.className === "t1" ? t1.className="t1 show" : t1.className = "t1";
+
+    if(t1.className === "t1"){
+        t1.className = "t1 show";
+        extra.className = "dissapear";
+    }
+    else{
+        t1.className = "t1";
+        extra.className = "";
+    }
 }
 
 function click_t2(){
     let t2 = document.getElementById('t2');
-    if(t2 === null){
+    let extra = document.getElementById('extra');
+    if(t2 === null || extra === null){
         return;
     }
 
     click("t2")
-    t2.className === "t2" ? t2.className="t2 show" : t2.className = "t2";
+
+    if(t2.className === "t2"){
+        t2.className = "t2 show";
+        extra.className = "dissapear";
+    }
+    else{
+        t2.className = "t2";
+        extra.className = "";
+    }
 }
 
 function click_t3(){
     let t3 = document.getElementById('t3');
-    if(t3 === null){
+    let extra = document.getElementById('extra');
+    if(t3 === null || extra === null){
         return;
     }
 
     click("t3")
-    t3.className === "t3" ? t3.className="t3 show" : t3.className = "t3";
+
+    if(t3.className === "t3"){
+        t3.className = "t3 show";
+        extra.className = "dissapear";
+    }
+    else{
+        t3.className = "t3";
+        extra.className = "";
+    }
 }
 
 function click_t4(){
     let t4 = document.getElementById('t4');
-    if(t4 === null){
+    let extra = document.getElementById('extra');
+    if(t4 === null || extra === null){
         return;
     }
 
     click("t4")
-    t4.className === "t4" ? t4.className="t4 show" : t4.className = "t4";
+
+    if(t4.className === "t4"){
+        t4.className = "t4 show";
+        extra.className = "dissapear";
+    }
+    else{
+        t4.className = "t4";
+        extra.className = "";
+    }
 }
 
 function change_name(){
@@ -99,6 +135,6 @@ function load_content(){
         ${language[prefLanguageprefix]}
     `;
 
-    setInterval(change_name, 5000);
+    setInterval(change_name, 2000);
     start();
 }
