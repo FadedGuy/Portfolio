@@ -160,28 +160,75 @@ a:any-link:hover{
     background-image: url(../images/dsbot.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 .cctw{
     background-image: url(../images/cctw.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 .pp3{
     background-image: url(../images/pp3.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 .portfolio{
     background-image: url(../images/portfolio.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 .pps2{
     background-image: url(../images/pps2.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
+}
+
+.breakout{
+    background-image: url(../images/breakout.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.bigi{
+    background-image: url(../images/bigi.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.compeye{
+    background-image: url(../images/compeye.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.asfdc{
+    background-image: url(../images/asfdc.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.cpzle{
+    background-image: url(../images/cpzle.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.minim{
+    background-image: url(../images/minim.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }

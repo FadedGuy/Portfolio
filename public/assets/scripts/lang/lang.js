@@ -40,34 +40,41 @@ let language = {
             </div>
         </div>
         <div id="t3" class="t3">
-            <h2>Node.JS</h2>
+            <h2>Python</h2>
             <h3>
-                Node is my language of choice for <a style="color:greenyellow">web servers</a> and as a base for <a style="color:greenyellow">cross-platform applications</a>.
-                I've been using it for 5 years now, and I'd say I'm <a style="border-bottom: 2px solid greenyellow">proficient</a> at it.
+                Python is my preferred language for <a style="color:green">quick scripts and programs</a> because of it's versatily
+                and extensive library altough if the application requires it, I have and am able to develop in <a style="color:green">other
+                more efficient languages</a>. I consider myself <a style="color:green">proficient</a> at it.
             </h3>
 
             <div class="inner-box">
-                <a class="pps2" href="https://github.com/FadedGuy/ProjectPaps2" target="blank">
-                    ProyectPaps2
+                <a class="breakout" href="https://github.com/FadedGuy/BreakoutBot" target="blank">
+                    BreakoutBot
                 </a>
-                <a class="cctw" href="https://github.com/FadedGuy/RabbitHole" target="blank">
-                    RabbitHole
+                <a class="bigi" href="https://github.com/FadedGuy/butItsGoogleImages" target="blank">
+                    butItsGoogleImages
+                </a>
+                <a class="compeye" href="https://github.com/FadedGuy/Universidad/tree/main/L3/visionComputador" target="blank">
+                    Computer Vision AI
                 </a>
             </div>
         </div>
         <div id="t4" class="t4">
-            <h2>Node.JS</h2>
+            <h2>Others</h2>
             <h3>
-                Node is my language of choice for <a style="color:greenyellow">web servers</a> and as a base for <a style="color:greenyellow">cross-platform applications</a>.
-                I've been using it for 5 years now, and I'd say I'm <a style="border-bottom: 2px solid greenyellow">proficient</a> at it.
+                I've also worked with <a style="color:blue">Java</a>, <a style="color:blue">C++/C#</a>, and I have experience in some other languagues. I've also been <a style="color:blue">daily-driving Linux</a> for 1 year but have used it for 3 years.
+                I consider myself <a style="color:blue">adept</a> in the above mentioned languages. Lastly I've also done robotic related proyects mainly with <a style="color:blue">Arduino</a>.
             </h3>
 
             <div class="inner-box">
-                <a class="pps2" href="https://github.com/FadedGuy/ProjectPaps2" target="blank">
-                    ProyectPaps2
+                <a class="asfdc" href="https://github.com/FadedGuy/AskSFDC" target="blank">
+                    Ask SFDC
                 </a>
-                <a class="cctw" href="https://github.com/FadedGuy/RabbitHole" target="blank">
-                    RabbitHole
+                <a class="cpzle" href="https://github.com/FadedGuy/Crossword-puzzle" target="blank">
+                    Crossword puzzle
+                </a>
+                <a class="minim" href="https://github.com/FadedGuy/MinimHero" target="blank">
+                    Minim Hero
                 </a>
             </div>
         </div>
