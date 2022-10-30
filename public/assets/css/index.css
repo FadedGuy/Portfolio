@@ -1,3 +1,15 @@
+
+@keyframes slidein {
+    from{
+        opacity: 0;
+        transform: translateY(-15%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
 *{
     box-sizing: border-box;
 }
@@ -74,9 +86,38 @@ a:any-link:hover{
     transition: border, 0.2s linear;
 }
 
+.t1A.selected{
+    color: greenyellow;
+    border: 2px solid greenyellow;
+    border-radius: 3px;
+    padding: 2px 5px 2px 5px;
+}
+
+.t2A.selected{
+    color: orange;
+    border: 2px solid orange;
+    border-radius: 3px;
+    padding: 2px 5px 2px 5px;
+}
+
+.t3A.selected{
+    color: green;
+    border: 2px solid green;
+    border-radius: 3px;
+    padding: 2px 5px 2px 5px;
+}
+
+.t4A.selected{
+    color: rgb(80,69,245);
+    border: 2px solid rgb(80,69,245);
+    border-radius: 3px;
+    padding: 2px 5px 2px 5px;
+}
+
 .t1{
     display: none;
     border-color: greenyellow;
+    color: white;
 }
 
 .t2{
@@ -94,8 +135,9 @@ a:any-link:hover{
     border-color: rgb(80,69,245);
 }
 
+
 .show{
-    display: block;
+    display: grid;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -109,6 +151,8 @@ a:any-link:hover{
     border-width: 2px;
     border-style: solid;
     border-radius: 3px;
+
+    animation: slidein 1s ease-out;
 }
 
 .inner-box{
@@ -139,8 +183,9 @@ a:any-link:hover{
     margin-left: 5%;
     margin-right: 5%;
     padding: 15%;
+    border-radius: 3px;
 
-    font-weight: bold;
+    font-weight: bolder;
     text-decoration: none;
 }
 
@@ -150,6 +195,14 @@ a:any-link:hover{
 
 .inner-box > a:visited{
     color: inherit;
+}
+
+.inner-box > a:hover{
+    transform: scale(105%);
+    border-width: 5px;
+
+    transition: transform 0.5s ease-out;
+    transition: border-width 0.3s ease;
 }
 
 .dissapear{
