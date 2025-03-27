@@ -1,10 +1,25 @@
 {
   "name": "portfolio",
   "version": "0.0.0",
+  "author": "Kevin Aceves <kevin.aceves@hotmail.com>",
+  "homepage": "https://fadedguy.dev",
+  "license": "MIT",
+  "contributors": [
+    "Kevin Aceves <kevin.aceves@hotmail.com>"
+  ],
+  "repository": "https://github.com/FadedGuy/Portfolio",
+  "readme": "https://github.com/FadedGuy/Portfolio/blob/master/README.md",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "build:prod:stats": "ng build --configuration production --stats-json",
+    "lint": "eslint src/app/**/*.ts",
+    "compodoc": "npx compodoc -p tsconfig.app.json",
+    "analyze": "ng build --source-map true && source-map-explorer dist/portfolio/**/*.js",
+    "prettier": "prettier --write \"src/app/**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -26,15 +41,32 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.5",
+    "@angular-eslint/builder": "^19.1.0",
+    "@angular-eslint/eslint-plugin": "^19.1.0",
+    "@angular-eslint/eslint-plugin-template": "^19.1.0",
+    "@angular-eslint/schematics": "^19.1.0",
+    "@angular-eslint/template-parser": "^19.1.0",
     "@angular/cli": "^19.2.5",
     "@angular/compiler-cli": "^19.2.0",
+    "@compodoc/compodoc": "^1.1.26",
+    "@types/eslint": "9.6.1",
     "@types/jasmine": "~5.1.0",
+    "@typescript-eslint/eslint-plugin": "8.21.0",
+    "@typescript-eslint/parser": "8.21.0",
+    "auto-changelog": "^2.5.0",
     "jasmine-core": "~5.6.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-jsdoc": "^50.6.3",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-storybook": "^0.11.3",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^3.4.2",
+    "source-map-explorer": "^2.5.3",
     "typescript": "~5.7.2"
   }
 }
